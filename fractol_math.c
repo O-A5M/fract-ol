@@ -1,10 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol_math.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oakhmouc <oakhmouc@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/20 20:23:23 by oakhmouc          #+#    #+#             */
+/*   Updated: 2025/02/20 21:53:01 by oakhmouc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 double	pixel_to_cord(double pixel, t_zoom_factor *zoom_factor)
 {
 	double	ret;
 
-	ret = (zoom_factor->x - zoom_factor->y) * (pixel - 0) / (WIDTH - 0) + zoom_factor->y;
+	ret = (zoom_factor->x - zoom_factor->y)
+		* (pixel - 0) / (WIDTH - 0) + zoom_factor->y;
 	return (ret);
 }
 
@@ -28,14 +41,8 @@ t_complex	pow_c(t_complex z)
 
 int	color_change(int i, int iter)
 {
-    int	ret;
-//	int r, g, b;
-//
-//	r = (int)(sin(0.16 * i + 0) * 127 + 128);
-//	g = (int)(sin(0.16 * i + 2) * 127 + 128);
-//	b = (int)(sin(0.16 * i + 4) * 127 + 128);
-//	
-//	return (r << 16 | g << 8 | b);
+	int	ret;
+
 	ret = (0x00FFFFFF - 0x00000000) * (i - 0) / (iter - 0) + 0x00000000;
 	return (ret);
 }

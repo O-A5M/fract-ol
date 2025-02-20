@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   fractol_pixel_render.c                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: oakhmouc <oakhmouc@student.1337.ma>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/20 20:23:46 by oakhmouc          #+#    #+#             */
+/*   Updated: 2025/02/20 21:48:56 by oakhmouc         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fractol.h"
 
 void	pixel_render(t_fractol *fractol, void (*f) (int, int, t_fractol *))
@@ -16,5 +28,7 @@ void	pixel_render(t_fractol *fractol, void (*f) (int, int, t_fractol *))
 		}
 		x++;
 	}
-   	mlx_put_image_to_window(fractol->window.init_pt, fractol->window.window_pt, fractol->image.img, 0, 0);
+	mlx_put_image_to_window(fractol->window.init_pt,
+		fractol->window.window_pt,
+		fractol->image.img, 0, 0);
 }
