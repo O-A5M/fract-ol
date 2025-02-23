@@ -6,7 +6,7 @@
 /*   By: oakhmouc <oakhmouc@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/20 20:24:53 by oakhmouc          #+#    #+#             */
-/*   Updated: 2025/02/20 21:38:50 by oakhmouc         ###   ########.fr       */
+/*   Updated: 2025/02/23 15:22:22 by oakhmouc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	error_call(void)
 {
 	perror("It seems like we have some technical errors, try again later");
-	exit(EXIT_FAILURE);
+	exit(1);
 }
 
 void	open_window(t_fractol *fractol)
