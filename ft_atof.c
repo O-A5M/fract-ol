@@ -17,6 +17,7 @@ double	ft_atof(char *s)
 	double	ret;
 	char	**sn;
 
+	ret = 0.0;
 	if (!s)
 		return (0);
 	if (!ft_strchr(s, '.'))

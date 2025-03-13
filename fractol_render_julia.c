@@ -31,7 +31,7 @@ void	julia_draw(int x, int y, t_fractol *fractol)
 		z = sum_c(pow_c(z), c);
 		if (z.im * z.im + z.re * z.re > 4)
 		{
-			color = color_change(i, fractol->iter);
+			color = color_change(i, fractol);
 			pixel_in_image(x, y, &fractol->image, color);
 			return ;
 		}

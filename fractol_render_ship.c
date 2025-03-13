@@ -20,9 +20,9 @@ void	ship_draw(int x, int y, t_fractol *fractol)
 	int			color;
 
 	c.re = pixel_to_cord(x, &fractol->zoom_factor)
-		+ fractol->x_move * (fractol->zoom_factor.x / 2);
+		 + fractol->x_move * (fractol->zoom_factor.x / 2);
 	c.im = pixel_to_cord(y, &fractol->zoom_factor)
-		+ fractol->y_move * (fractol->zoom_factor.x / 2);
+		 + fractol->y_move * (fractol->zoom_factor.x / 2);
 	z.re = 0;
 	z.im = 0;
 	i = 0;
@@ -33,7 +33,7 @@ void	ship_draw(int x, int y, t_fractol *fractol)
 		z = sum_c(pow_c(z), c);
 		if (z.im * z.im + z.re * z.re > 4)
 		{
-			color = color_change(i, fractol->iter);
+			color = color_change(i, fractol);
 			pixel_in_image(x, y, &fractol->image, color);
 			return ;
 		}

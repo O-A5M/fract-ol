@@ -16,8 +16,7 @@ double	pixel_to_cord(double pixel, t_zoom_factor *zoom_factor)
 {
 	double	ret;
 
-	ret = (zoom_factor->x - zoom_factor->y)
-		* (pixel - 0) / (WIDTH - 0) + zoom_factor->y;
+	ret = (zoom_factor->x - zoom_factor->y) * pixel / WIDTH + zoom_factor->y;
 	return (ret);
 }
 
@@ -39,10 +38,16 @@ t_complex	pow_c(t_complex z)
 	return (ret);
 }
 
-int	color_change(int i, int iter)
+int	color_change(int iter, t_fractol *fractol)
 {
-	int	ret;
+	double	t;
+	int		r;
+	int		g;
+	int		b;
 
-	ret = (0x00FFFFFF - 0x00000000) * (i - 0) / (iter - 0) + 0x00000000;
-	return (ret);
+	t = (iter * 7 + fractol->color_change) / 255.0;
+	r = (int)(127.5 * (1 + sin(6.28 * t)));
+	g = (int)(127.5 * (1 + sin(6.28 * t + 2)));
+	b = (int)(127.5 * (1 + sin(6.28 * t + 4)));
+	return ((r << 16) | (g << 8) | b);
 }

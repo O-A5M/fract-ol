@@ -28,7 +28,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
-# include </home/oakhmouc/minilibx-linux/mlx.h>
+# include "minilibx-linux/mlx.h"
 # include "libft/libft.h"
 # include "libft/ft_printf/ft_printf.h"
 # include <math.h>
@@ -43,6 +43,8 @@ typedef struct s_zoom_factor
 {
 	double	x;
 	double	y;
+	double	mouse_x;
+	double	mouse_y;
 }		t_zoom_factor;
 
 typedef struct s_image
@@ -76,10 +78,12 @@ typedef struct s_fractol
 	double				x_move;
 	double				y_move;
 	int					type;
-}		t_fractol;
+	int					color_change;
+}				t_fractol;
 
-void				pixel_render(t_fractol *fractol,
+int					pixel_render(t_fractol *fractol,
 						void (*f) (int, int, t_fractol *));
+int					loop_render(t_fractol *fractol);
 void				open_window(t_fractol *fractol);
 t_complex			sum_c(t_complex z, t_complex c);
 t_complex			pow_c(t_complex z);
@@ -87,10 +91,10 @@ double				pixel_to_cord(double pixel, t_zoom_factor *zoom_factor);
 int					x_close(t_fractol *fractol);
 void				pixel_in_image(int x, int y, t_image *image, int color);
 int					key_press(int the_code, t_fractol *fractol);
-int					color_change(int i, int iter);
-int					fractol_mandelbrot(t_fractol *fractol);
-int					fractol_julia(t_fractol *fractol);
-int					fractol_ship(t_fractol *fractol);
+int					color_change(int i, t_fractol *fractol);
+void				fractol_mandelbrot(t_fractol *fractol);
+void				fractol_julia(t_fractol *fractol);
+void				fractol_ship(t_fractol *fractol);
 double				ft_atof(char *s);
 int					parsing_julia(char **s, int ac, t_julia *julia);
 int					fractol_zoom(int the_code, int x, int y,
@@ -101,5 +105,7 @@ void				mandelbrot_draw(int x, int y, t_fractol *fractol);
 void				ship_draw(int x, int y, t_fractol *fractol);
 int					arrow_move(int the_code, t_fractol *fractol);
 int					color_shift(int the_code, t_fractol *fractol);
+void				print_goodbye(void);
+void				print_usage(void);
 
 #endif
