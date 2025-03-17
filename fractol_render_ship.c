@@ -20,9 +20,9 @@ void	ship_draw(int x, int y, t_fractol *fractol)
 	int			color;
 
 	c.re = pixel_to_cord(x, &fractol->zoom_factor)
-		 + fractol->x_move * (fractol->zoom_factor.x / 2);
+		+ fractol->x_move * (fractol->zoom_factor.x);
 	c.im = pixel_to_cord(y, &fractol->zoom_factor)
-		 + fractol->y_move * (fractol->zoom_factor.x / 2);
+		+ fractol->y_move * (fractol->zoom_factor.x);
 	z.re = 0;
 	z.im = 0;
 	i = 0;

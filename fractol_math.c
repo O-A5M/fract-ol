@@ -16,7 +16,7 @@ double	pixel_to_cord(double pixel, t_zoom_factor *zoom_factor)
 {
 	double	ret;
 
-	ret = (zoom_factor->x - zoom_factor->y) * pixel / WIDTH + zoom_factor->y;
+	ret = ((zoom_factor->x - zoom_factor->y) * pixel / WIDTH + zoom_factor->y);
 	return (ret);
 }
 

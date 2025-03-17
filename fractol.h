@@ -12,8 +12,8 @@
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIDTH 800
+# define HEIGHT 800
 # define MIN_SCALE -2
 # define MAX_SCALE 2
 # define ARROW_LEFT 65361
@@ -25,10 +25,13 @@
 # define KEY_MINUS 45
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
+# define KEY_LOWER_C 99
+# define KEY_LOWER_R 114
 # include <unistd.h>
 # include <stdlib.h>
 # include <stddef.h>
-# include "minilibx-linux/mlx.h"
+# include <mlx.h>
+# include <X11/X.h>
 # include "libft/libft.h"
 # include "libft/ft_printf/ft_printf.h"
 # include <math.h>
@@ -43,8 +46,6 @@ typedef struct s_zoom_factor
 {
 	double	x;
 	double	y;
-	double	mouse_x;
-	double	mouse_y;
 }		t_zoom_factor;
 
 typedef struct s_image
@@ -107,5 +108,8 @@ int					arrow_move(int the_code, t_fractol *fractol);
 int					color_shift(int the_code, t_fractol *fractol);
 void				print_goodbye(void);
 void				print_usage(void);
+void				fractol_init(t_fractol *fractol);
+void				close_window(t_fractol *fractol);
+int					isnum(char *s1, char *s2);
 
 #endif

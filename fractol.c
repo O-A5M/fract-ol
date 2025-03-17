@@ -86,32 +86,27 @@ void	julia_init(t_fractol *fractol)
 	fractol_julia(fractol);
 }
 
-void	fractol_init(t_fractol *fractol)
-{
-	
-}
-
 int	main(int ac, char **av)
 {
 	t_fractol	fractol;
 
-	fractol.iter = 42;
-	fractol.zoom_factor.x = 2;
-	fractol.zoom_factor.y = -2;
-	fractol.x_move = 0;
-	fractol.y_move = 0;
+	fractol_init(&fractol);
 	if (ac == 2 || ac == 4)
 	{
 		if (!ft_strncmp(av[1], "Julia", 6))
 		{
-			if (parsing_julia(av, ac, &fractol.julia))
+			if (parsing_julia(av, ac, &fractol.julia) && isnum(av[2], av[3]))
 				fractol_julia(&fractol);
-			else
+			else if (ac == 2)
 				julia_init(&fractol);
+			else
+				error_message();
 		}
-		else if (!ft_strncmp(av[1], "Burning-ship", 13))
+		else if (!ft_strncmp(av[1], "Burning-ship", 13)
+			&& ac == 2)
 			fractol_ship(&fractol);
-		else if (!ft_strncmp(av[1], "Mandelbrot", 11))
+		else if (!ft_strncmp(av[1], "Mandelbrot", 11)
+			&& ac == 2)
 			fractol_mandelbrot(&fractol);
 		else
 			error_message();

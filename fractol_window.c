@@ -24,14 +24,14 @@ void	open_window(t_fractol *fractol)
 	if (fractol->window.init_pt == NULL)
 		error_call();
 	fractol->window.window_pt = mlx_new_window(fractol->window.init_pt,
-			1000, 1000, "Fract-ol");
+			WIDTH, HEIGHT, "Fract-ol");
 	if (fractol->window.window_pt == NULL)
 	{
 		mlx_destroy_window(fractol->window.init_pt, fractol->window.window_pt);
 		free(fractol->window.init_pt);
 		error_call();
 	}
-	fractol->image.img = mlx_new_image(fractol->window.init_pt, 1000, 1000);
+	fractol->image.img = mlx_new_image(fractol->window.init_pt, WIDTH, HEIGHT);
 	if (fractol->image.img == NULL)
 	{
 		mlx_destroy_window(fractol->window.init_pt, fractol->window.window_pt);

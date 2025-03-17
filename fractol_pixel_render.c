@@ -45,9 +45,9 @@ int	pixel_render(t_fractol *fractol, void (*f) (int, int, t_fractol *))
 	return (0);
 }
 
-int loop_render(t_fractol *fractol)
+int	loop_render(t_fractol *fractol)
 {
 	clear_image(fractol);
 	fractol_type(fractol);
-    return (0);
+	return (0);
 }

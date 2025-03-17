@@ -22,9 +22,9 @@ void	mandelbrot_draw(int x, int y, t_fractol *fractol)
 	z.re = 0;
 	z.im = 0;
 	c.re = pixel_to_cord(x, &fractol->zoom_factor)
-		+ fractol->x_move * (fractol->zoom_factor.x / 2);
+		+ fractol->x_move * (fractol->zoom_factor.x * 1.2);
 	c.im = pixel_to_cord(y, &fractol->zoom_factor)
-		+ fractol->y_move * (fractol->zoom_factor.x / 2);
+		+ fractol->y_move * (fractol->zoom_factor.x * 1.2);
 	i = 0;
 	while (i < fractol->iter)
 	{
