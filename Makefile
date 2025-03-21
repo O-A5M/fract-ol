@@ -1,6 +1,6 @@
 # fractol's variables
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -O
 CC = cc
 SRC = fractol.c fractol_math.c fractol_window.c fract_pixel_in_image.c fractol_mandelbrot.c fractol_events.c fractol_julia.c ft_atof.c fractol_render_julia.c fractol_render_mandelbrot.c fractol_parsing.c fractol_clear.c fractol_pixel_render.c fractol_init.c fractol_ship.c fractol_render_ship.c
 NAME = fractol
